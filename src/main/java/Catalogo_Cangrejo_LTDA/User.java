@@ -5,38 +5,37 @@
 package Catalogo_Cangrejo_LTDA;
 
 import java.io.Serializable;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Index;
+import javax.persistence.Table;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.Field;
-
 /**
  *
  * @author Juan Valero
  */
-//@Entity
+@Entity
 @Data
 @RequiredArgsConstructor
 @NoArgsConstructor
-@Document(collection = "users")
-//@Table(name="user", indexes = @Index(name="index_email", columnList = "user_email", unique=true))
+@Table(name = "user", indexes = @Index(name = "indx_email", columnList = "user_email", unique = true))
 public class User implements Serializable {
     @Id
-    //  @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String id;
-    @NonNull
-    //  @Column(name = "user_email", nullable = false, length = 50)
-    @Field(name = "user_email")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+      @NonNull
+    @Column(name = "user_email", nullable = false, length = 50)
     private String email;
     @NonNull
-    //  @Column(name = "user_password", nullable = false, length = 50)
-    @Field(name = "user_password")
+    @Column(name = "user_password", nullable = false, length = 50)
     private String password;
     @NonNull
-    // @Column(name = "user_name", nullable = false, length = 80)
-    @Field(name = "user_name")
-    private String name;
+    @Column(name = "user_name", nullable = false, length = 80)
+    private String name; 
 }

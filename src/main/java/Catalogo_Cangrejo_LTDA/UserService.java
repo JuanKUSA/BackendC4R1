@@ -19,7 +19,7 @@ public class UserService {
    public List<User> getAll(){
        return userRepository.getAll();
    }
-     public Optional<User> getUser(String id) {
+     public Optional<User> getUser(int id) {
         return userRepository.getUser(id);
     }
      
@@ -48,5 +48,5 @@ public class UserService {
         } else {
             return usuario.get();
         }
-    }   
+    }
 }

@@ -17,10 +17,10 @@ public class UserRepository {
     private UserCrudRepository userCrudRepository;
      
      public List <User> getAll(){
-        return (List<User>) userCrudRepository.findAll();
+     return (List<User>) userCrudRepository.findAll();
      }
      
-    public Optional<User> getUser(String id) {
+    public Optional<User> getUser(int id) {
         return userCrudRepository.findById(id);
     }
        
@@ -36,5 +36,5 @@ public class UserRepository {
     
      public Optional<User> autenticarUsuario(String email, String password) {
         return userCrudRepository.findByEmailAndPassword(email, password);
-    } 
+    }
 }
